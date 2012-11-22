@@ -27,9 +27,6 @@
 /*refers to envp*/
 extern char **environ;
 
-/*when given -i, --ignore-environment, start with empty env*/
-char  g_paramIgnore = 0;
-
 /*when given -0, --null, replace new-lines with '0'*/
 char  g_paramNull = 0;
 
@@ -41,7 +38,7 @@ void ignore_env(char const * const *str, int argn) {
     clearenv();
 }
 
-/*Print the environment to stdout, take note of globals set*/
+/*Print the environment to stdout, take of g_paramNull for formatting*/
 void print_env(void)
 {
     char **envp = environ;
